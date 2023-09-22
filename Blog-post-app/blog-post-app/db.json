@@ -1,0 +1,22 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "This is my best React Post.",
+      "categories": "React.js framework",
+      "content": "The React.js framework is an open-source JavaScript framework and library developed by Facebook. It’s used for building interactive user interfaces and web applications quickly and efficiently with significantly less code than you would with vanilla JavaScript"
+    },
+    {
+      "title": "My Home Town",
+      "categories": "Street Blogger",
+      "content": "Varanasi is a city on the Ganges river in northern India that has a central place in the traditions of pilgrimage, death, and mourning in the Hindu world.",
+      "id": 2
+    },
+    {
+      "title": "This is best redux post.",
+      "categories": "JavaScript library",
+      "content": "Redux is an open-source JavaScript library used to manage application state. React uses Redux for building the user interface.",
+      "id": 3
+    }
+  ]
+}
