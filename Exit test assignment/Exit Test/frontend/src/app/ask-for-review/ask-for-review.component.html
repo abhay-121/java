@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand"> Welcome : <small style="color:blue;">{{userName}}</small></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav"></ul>
+            <a (click)="logout()" class="btn btn-primary btn-md" data-toggle="tooltip" title="Logout">
+                <span class="fa fa-sign-out">Logout</span>
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <p class="h1 fw-bold mb-4 mt-4">Ask For Reviews</p>
+            <small class="text-danger fw-bold">{{message}}</small>
+        </div>
+        <div class="col-md-8" >
+            <form #askForm="ngForm" (ngSubmit)="askForReview()" method="post">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-lable" for="productCode">ProductCode</label>
+                    <div class="col-sm-6 mb-3">
+                        <input class="form-control" type="text" name="productCode" [(ngModel)]="product.productCode" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-lable" for="productName">productName</label>
+                    <div class="col-sm-6 mb-3">
+                        <input class="form-control" type="text" name="productName" [(ngModel)]="product.productName" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-lable" for="productBrand">productBrand</label>
+                    <div class="col-sm-6 mb-3">
+                        <input class="form-control" type="text" name="productBrand" [(ngModel)]="product.productBrand" required >
+                    </div>
+                </div>
+                <button [disabled]="!askForm.valid"class="btn btn-primary mb-3" type="submit">Ask</button>&nbsp;
+                <button class="btn btn-secondary mb-3" type="reset">Clear</button>
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,9 @@
+
+.card-apperance{
+    box-shadow: 2px 5px 5px 0 lightseagreen;
+    border-radius: 10px;
+}
+
+.card:hover{
+    box-shadow: 8px 5px 8px 0 lightgreen;
+}

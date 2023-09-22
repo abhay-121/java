@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand"> Welcome : <small style="color:blue;">{{reviews.userName}}</small></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav"></ul>
+      <a (click)="logout()" class="btn btn-primary btn-md" data-toggle="tooltip" title="Logout">
+        <span class="fa fa-sign-out">Logout</span>
+      </a>
+    </div>
+  </div>
+</nav>
+<button class="btn btn-lg btn-light" data-toggle="tooltip" title="back" routerLink="/result/{{code}}"><i
+  class="fa fa-arrow-circle-left ml-5"></i></button>
+
+<div class="container">
+  <form #postForm="ngForm" (ngSubmit)="postReviwesData()" method="post" data-toggle="validator">
+    <div class="card mb-3 large">
+      <div class="card-header bg-success text-center"><b>Post Your Review For: </b>{{product.productBrand}}
+        {{product.productName}}</div>
+      <div class="card-body">
+        <b class="card-title">Heading</b>
+        <p class="card-text">
+          <input class="from-control" rows="2" minlength="10" maxlength="200" text-danger [(ngModel)]="reviews.heading" required #heading="ngModel"
+            name="heading" placeholder="Enter your heading here..">
+            <span class="text-danger" *ngIf="heading.invalid && heading.touched">**Required Field, Minimum length should be greater than 10 character</span>
+        </p>
+        <b class="card-title">Rating</b>
+        <div class="rating">
+          <input type="radio" name="rating" value="5" id="5" [(ngModel)]="reviews.rating"><label for="5">☆</label>
+          <input type="radio" name="rating" value="4" id="4" [(ngModel)]="reviews.rating"><label for="4">☆</label>
+          <input type="radio" name="rating" value="3" id="3" [(ngModel)]="reviews.rating"><label for="3">☆</label>
+          <input type="radio" name="rating" value="2" id="2" [(ngModel)]="reviews.rating"><label for="2">☆</label>
+          <input type="radio" name="rating" value="1" id="1" [(ngModel)]="reviews.rating"><label for="1">☆</label>
+        </div>
+
+        <div class="help-block with-errors"></div>
+        <b class="card-title">Message Body</b>
+        <p class="card-text">
+          <textarea class="form-control" rows="3" minlength="20" maxlength="400" name="message" [(ngModel)]="reviews.message" required
+            #message="ngModel" placeholder="Write your message.."></textarea>
+            <span class="text-danger" *ngIf="message.invalid && message.touched">**Required Field, Minimum length should be greater than 20 character</span>
+        </p>
+
+        <div class="help-block with-errors"></div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button [disabled]="!postForm.valid" class="btn btn-primary" type="submit">Post Review</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

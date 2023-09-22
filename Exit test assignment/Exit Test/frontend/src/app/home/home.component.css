@@ -1,0 +1,11 @@
+/* .bg{
+    background-image: url("../../assets/picture/bg_image.jpg");
+    height: 520px;
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+
+.fa{
+    font-size: 50px;
+    color:blueviolet;
+}

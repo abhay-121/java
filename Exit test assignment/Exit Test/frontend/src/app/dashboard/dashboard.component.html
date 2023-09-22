@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand"> Welcome : <small style="color:blue;">{{userName}}</small></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/askforReview" routerLinkActive="active">Ask for Review</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav"></ul>
+        <a (click)="logout()" class="btn btn-primary btn-md" data-toggle="tooltip" title="Logout">
+            <span class="fa fa-sign-out">Logout</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+<div class="container">
+    <div class="row mt-5 justify-content-center">
+        <div class="col-md-8 ">
+            <form  #searchForm="ngForm" (ngSubmit)="searchProduct(searchForm.value.search)">
+                <div class="main">
+                    <div class="input-group">
+                        <input type="text" ngModel class="form-control" name="search" placeholder="Search Product by name, code or brand..">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit"><i class=" fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container">
+  <div class="row col-12">
+      <div class="col-4">
+          <div class="d-flex justify-content-end">
+              <i class="fa resize fa-user" style="margin-top: 300px; position: relative;">&nbsp;</i>
+              <span style=" font-size:30px; margin-top: 300px; position: relative;"> {{stats.totalUsers}}</span>
+              <span style=" font-size:15px; margin-top: 325px; position: relative;"> Members</span>
+          </div>
+      </div>
+      <div class="col-4">
+          <div class="d-flex justify-content-center">
+              <i class="fa resize fa-comments" style="margin-top: 300px; position: relative;">&nbsp;</i>
+              <span  class="ml-2" style=" font-size:30px; margin-top: 300px; position: relative;"> {{stats.totalReviews}}</span>
+              <br>
+              <span style=" font-size:15px; margin-top: 325px; position: relative;"> Reviews</span>
+              
+          </div>
+      </div>
+      <div class="col-4">
+          <div class="d-flex justify-content-start">
+              <i class="fa resize fa-product-hunt" style="margin-top: 300px; position: relative;">&nbsp;</i>
+              <span style=" font-size:30px; margin-top: 300px; position: relative;"> {{stats.totalProducts}}</span>
+              <span style=" font-size:15px; margin-top: 325px; position: relative;"> Products</span>
+          </div>
+      </div>
+  </div>
+</div>
